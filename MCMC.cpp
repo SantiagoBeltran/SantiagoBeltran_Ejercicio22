@@ -23,11 +23,12 @@ void MCMC(int N){
    float resp;
    float prop;
    float prim;
-   prim = 2*drand48(time(0))-1;
+   srand48(time(0));
+   prim = 2*drand48()-1;
    for (int i=0; i<N; i++){
-       prop=prim+ drand48(time(0));
+       prop=prim+ drand48();
        r=f(prop)/f(prim);
-       alpha=drand48(time(0));
+       alpha=drand48();
        if(r>alpha){
           resp=prop;
           prim=prop; 
